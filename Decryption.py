@@ -28,7 +28,6 @@ for i in range(0, 27):
     plainTexts[f"Shift_{i}"] = decode_caesar_cipher(ciphertext,i)
 
 
-
 #2
 
 
@@ -67,6 +66,9 @@ generated_key = generate_key(ciphertext, key)
 
 
 plain_text = decode_Vigenere_cipher(ciphertext,generated_key)
+
+
+#3
 
     
 
