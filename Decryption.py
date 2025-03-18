@@ -88,10 +88,6 @@ else:
 
 #3
 
-# Open the file in read mode
-with open("lg565/cexercise3.txt", "r") as file:
-    # Read the content of the file
-    ciphertext = file.read()
 
 
 from collections import Counter
@@ -101,8 +97,6 @@ with open("lg565/cexercise3.txt", "r") as file:
     # Read the content of the file
     ciphertext = file.read()
 
-
-from collections import Counter
 
 # Function to divide ciphertext into groups based on key length
 def divide_ciphertext(ciphertext, key_length=6):
@@ -123,7 +117,6 @@ def frequency_analysis(groups):
     return analysis
 
 # Example ciphertext
-ciphertext = "YBRSXWPLTFOVJVKZXPOD"
 key_length = 6
 
 # Step 1: Divide ciphertext into groups
@@ -158,6 +151,8 @@ groups = divide_ciphertext(ciphertext)
 for i, group in enumerate(groups):
     print(f"Group {i+1}: {group}")
     
+divide_ciphertext(ciphertext)
+    
     
 
 def caesar_shift(text, shift):
@@ -179,9 +174,15 @@ Groups = dict(group1=["X","W","M","W","A"],
 #SYPPTJ	key
 #FIRSTHELIVEDUPABOVEENTIRELYREA Plaintext
 #Frequency analysis
-#Recover the Key
-#Decipher the ciphertext
-#dcode.fr used
+# For example in group 1 W is the most frequent letter in the ciphertext
+# there are 18 spaces between E and W. +1 to account for E and the caeser shift is 19 = S.
+# For Group 2 the most common letter in the ciphertext is C 
+# there are 24 spaces between E and C. +1 to account for E amd the ceaser shift is 25 = Y
+# So on and so forth 
+# and the key is    
+# Recover the Key
+# Decipher the ciphertext
+
 
 
 #4
