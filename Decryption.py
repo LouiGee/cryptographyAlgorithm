@@ -104,6 +104,62 @@ with open("lg565/cexercise3.txt", "r") as file:
 
 from collections import Counter
 
+# Function to divide ciphertext into groups based on key length
+def divide_ciphertext(ciphertext, key_length=6):
+    groups = [''] * key_length  # Create a list for each group
+
+    for i, letter in enumerate(ciphertext):
+        groups[i % key_length] += letter  # Assign letters to groups cyclically
+
+    return groups
+
+# Function to perform frequency analysis on each group
+def frequency_analysis(groups):
+    analysis = []
+    for i, group in enumerate(groups):
+        freq_count = Counter(group)  # Count letter occurrences
+        sorted_freq = sorted(freq_count.items(), key=lambda x: x[1], reverse=True)  # Sort by frequency
+        analysis.append((i + 1, sorted_freq))  # Store group number and frequencies
+    return analysis
+
+# Example ciphertext
+ciphertext = "YBRSXWPLTFOVJVKZXPOD"
+key_length = 6
+
+# Step 1: Divide ciphertext into groups
+groups = divide_ciphertext(ciphertext, key_length)
+
+# Step 2: Perform frequency analysis on each group
+freq_results = frequency_analysis(groups)
+
+# Print frequency analysis results
+for group_num, freqs in freq_results:
+    print(f"Group {group_num} frequency analysis:")
+    for letter, freq in freqs:
+        print(f"  {letter}: {freq}")
+    print("\n")
+
+
+from collections import Counter
+
+
+def divide_ciphertext(ciphertext, key_length=6):
+    groups = [''] * key_length  # Create a list for each group
+
+    for i, letter in enumerate(ciphertext):
+        groups[i % key_length] += letter  # Assign letters to groups cyclically
+
+    return groups
+
+# Example usage
+groups = divide_ciphertext(ciphertext)
+
+# Print each group
+for i, group in enumerate(groups):
+    print(f"Group {i+1}: {group}")
+    
+    
+
 def caesar_shift(text, shift):
     result = ""
     for char in text:
@@ -125,8 +181,10 @@ Groups = dict(group1=["X","W","M","W","A"],
 #Frequency analysis
 #Recover the Key
 #Decipher the ciphertext
+#dcode.fr used
 
 
+#4
 
 
 
