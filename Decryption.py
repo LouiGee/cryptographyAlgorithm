@@ -20,7 +20,7 @@ def decode_caesar_cipher(ciphertext, shift):
         offset = ord('A')
             
         # Shift the character forward and wrap around the alphabet
-        decoded_char = chr((ord(char) - offset + shift) % 26 + offset)
+        decoded_char = chr((ord(char) - offset - shift) % 26 + offset)
         decoded_text += decoded_char
 
     return decoded_text
@@ -30,6 +30,13 @@ plainTexts = {}
 
 for i in range(0, 27):
     plainTexts[f"Shift_{i}"] = decode_caesar_cipher(ciphertext,i)
+    
+plainText1 = plainTexts["Shift_14"][:30]
+
+if plainText1 in text:
+    print("The extract exists in the text.")
+else:
+    print("The extract does not exist in the text.")
 
 
 #2
@@ -69,15 +76,14 @@ def generate_key(text, key):
 generated_key = generate_key(ciphertext, key)
 
 
-plain_text = decode_Vigenere_cipher(ciphertext,generated_key)
+plainText2 = decode_Vigenere_cipher(ciphertext,generated_key)
 
+plainText2 = plainText2[:30]
 
-if plain_text in text:
+if plainText2 in text:
     print("The extract exists in the text.")
 else:
     print("The extract does not exist in the text.")
-
-
 
 
 #3
@@ -90,69 +96,37 @@ with open("lg565/cexercise3.txt", "r") as file:
 
 from collections import Counter
 
+# Open the file in read mode
+with open("lg565/cexercise3.txt", "r") as file:
+    # Read the content of the file
+    ciphertext = file.read()
+
+
+from collections import Counter
+
 def caesar_shift(text, shift):
     result = ""
     for char in text:
-        if char.isalpha():
-            shift_base = ord('A') if char.isupper() else ord('a')
+            shift_base = ord('A')
             result += chr((ord(char) - shift_base - shift) % 26 + shift_base)
-        else:
-            result += char
     return result
 
-def frequency_analysis(segment):
-    frequencies = Counter(segment)
-    most_common_char = max(frequencies, key=frequencies.get)
-    # Assuming 'E' is the most common letter in plaintext (English)
-    shift = (ord(most_common_char) - ord('E')) % 26
-    return shift
+#Create groups
 
-def divide_text(text, key_length):
-    segments = [''] * key_length
-    for i, char in enumerate(text):
-        if char.isalpha():
-            segments[i % key_length] += char
-    return segments
+Groups = dict(group1=["X","W","M","W","A"],
+               group2=["G","J","N","C","W"], 
+               group3=["G","X","P","C","J"],
+               group4=["H","K","Q","I","N"],
+               group5=["M","X","H","B","G"],
+               group6=["Q","M","E","A","X"],)
 
-def vigenere_decrypt(ciphertext, key):
-    plaintext = ""
-    key_shifts = [(ord(k) - ord('A')) for k in key.upper()]
-    key_len = len(key)
-    for i, char in enumerate(ciphertext):
-        if char.isalpha():
-            shift = key_shifts[i % key_len]
-            shift_base = ord('A') if char.isupper() else ord('a')
-            plaintext += chr((ord(char) - shift_base - shift) % 26 + shift_base)
-        else:
-            plaintext += char
-    return plaintext
+#SYPPTJ	key
+#FIRSTHELIVEDUPABOVEENTIRELYREA Plaintext
+#Frequency analysis
+#Recover the Key
+#Decipher the ciphertext
 
 
-# Key length is known to be 6
-key_length = 6
-segments = divide_text(ciphertext, key_length)
-
-# Determine key using frequency analysis
-key = ""
-
-for segment in segments:
-    shift = frequency_analysis(segment)
-    key += chr((ord('A') + shift) % 26)
-
-print(f"Identified Key: {key}")
-
-# Decrypt the ciphertext using the identified key
-plaintext = vigenere_decrypt(ciphertext, key)
-print(f"Decrypted Text: {plaintext}")
-    
-
-
-
-
-if plaintext in text:
-    print("The extract exists in the text.")
-else:
-    print("The extract does not exist in the text.")
 
 
 
