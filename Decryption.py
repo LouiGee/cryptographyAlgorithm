@@ -288,6 +288,185 @@ if plainText4 in text:
     print("The extract exists in the text.")
 else:
     print("The extract does not exist in the text.")
+    
+    
+##5##
+
+import pandas as pd
+
+# Open the file in read mode
+with open("lg565/cexercise5.txt", "r") as file:
+    # Read the content of the file
+    ciphertext = file.read()
+    
+def split_text_into_columns4(text, num_columns=4):
+    # Calculate the length of each column
+    # column_length = len(text) // num_columns
+    
+    # Split the text into columns
+    # columns = [text[i:i+column_length] for i in range(0, len(text), column_length)]
+    
+    # Create a DataFrame where each row is a segment of the text
+    
+    df1 = pd.DataFrame([list(text)[:210]])
+    df2 = pd.DataFrame([list(text)[210:420]])
+    df3 = pd.DataFrame([list(text)[420:630]])
+    df4 = pd.DataFrame([list(text)[630:840]])
+    
+    
+    return df1,df2,df3,df4
+
+
+
+df1,df2,df3,df4 = split_text_into_columns4(ciphertext)
+
+transpose_df1 = df1.transpose()
+transpose_df2 = df2.transpose()
+transpose_df3 = df3.transpose()
+transpose_df4 = df4.transpose()
+
+transpose_df1 = transpose_df1.rename(columns={0: 'df1'})
+transpose_df2 = transpose_df2.rename(columns={0: 'df2'})
+transpose_df3 = transpose_df3.rename(columns={0: 'df3'})
+transpose_df4 = transpose_df4.rename(columns={0: 'df4'})
+
+dataframe = transpose_df1.merge(transpose_df2, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df3, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df4, left_index=True, right_index=True, how='left')
+
+
+def split_text_into_columns5(text, num_columns=5):
+    # Calculate the length of each column
+    # column_length = len(text) // num_columns
+    
+    # Split the text into columns
+    # columns = [text[i:i+column_length] for i in range(0, len(text), column_length)]
+    
+    # Create a DataFrame where each row is a segment of the text
+    
+    df1 = pd.DataFrame([list(text)[:168]])
+    df2 = pd.DataFrame([list(text)[168:336]])
+    df3 = pd.DataFrame([list(text)[336:504]])
+    df4 = pd.DataFrame([list(text)[504:672]])
+    df5 = pd.DataFrame([list(text)[672:840]])
+    
+    return df1,df2,df3,df4,df5
+
+
+
+df1,df2,df3,df4,df5 = split_text_into_columns5(ciphertext)
+
+transpose_df1 = df1.transpose()
+transpose_df2 = df2.transpose()
+transpose_df3 = df3.transpose()
+transpose_df4 = df4.transpose()
+transpose_df5 = df4.transpose()
+
+transpose_df1 = transpose_df1.rename(columns={0: 'df1'})
+transpose_df2 = transpose_df2.rename(columns={0: 'df2'})
+transpose_df3 = transpose_df3.rename(columns={0: 'df3'})
+transpose_df4 = transpose_df4.rename(columns={0: 'df4'})
+transpose_df5 = transpose_df5.rename(columns={0: 'df5'})
+
+dataframe = transpose_df1.merge(transpose_df2, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df3, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df4, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df5, left_index=True, right_index=True, how='left')
+
+
+def split_text_into_columns6(text, num_columns=6):
+    # Calculate the length of each column
+    # column_length = len(text) // num_columns
+    
+    # Split the text into columns
+    # columns = [text[i:i+column_length] for i in range(0, len(text), column_length)]
+    
+    # Create a DataFrame where each row is a segment of the text
+    
+    df1 = pd.DataFrame([list(text)[:140]])
+    df2 = pd.DataFrame([list(text)[140:280]])
+    df3 = pd.DataFrame([list(text)[280:420]])
+    df4 = pd.DataFrame([list(text)[420:560]])
+    df5 = pd.DataFrame([list(text)[560:700]])
+    df6 = pd.DataFrame([list(text)[700:840]])
+    
+    
+    return df1,df2,df3,df4,df5,df6
+
+
+df1,df2,df3,df4,df5,df6 = split_text_into_columns6(ciphertext)
+
+transpose_df1 = df1.transpose()
+transpose_df2 = df2.transpose()
+transpose_df3 = df3.transpose()
+transpose_df4 = df4.transpose()
+transpose_df5 = df5.transpose()
+transpose_df6 = df6.transpose()
+
+transpose_df1 = transpose_df1.rename(columns={0: 'df1'})
+transpose_df2 = transpose_df2.rename(columns={0: 'df2'})
+transpose_df3 = transpose_df3.rename(columns={0: 'df3'})
+transpose_df4 = transpose_df4.rename(columns={0: 'df4'})
+transpose_df5 = transpose_df5.rename(columns={0: 'df5'})
+transpose_df6 = transpose_df6.rename(columns={0: 'df6'})
+
+dataframe = transpose_df1.merge(transpose_df2, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df3, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df4, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df5, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df6, left_index=True, right_index=True, how='left')
+
+
+##6##
+
+with open("lg565/cexercise6.txt", "r") as file:
+    # Read the content of the file
+    ciphertext = file.read()
+
+def split_text_into_columns6(text, num_columns=6):
+    # Calculate the length of each column
+    # column_length = len(text) // num_columns
+    
+    # Split the text into columns
+    # columns = [text[i:i+column_length] for i in range(0, len(text), column_length)]
+    
+    # Create a DataFrame where each row is a segment of the text
+    
+    df1 = pd.DataFrame([list(text)[:140]])
+    df2 = pd.DataFrame([list(text)[140:280]])
+    df3 = pd.DataFrame([list(text)[280:420]])
+    df4 = pd.DataFrame([list(text)[420:560]])
+    df5 = pd.DataFrame([list(text)[560:700]])
+    df6 = pd.DataFrame([list(text)[700:840]])
+    
+    
+    return df1,df2,df3,df4,df5,df6
+
+
+df1,df2,df3,df4,df5,df6 = split_text_into_columns6(ciphertext)
+
+transpose_df1 = df1.transpose()
+transpose_df2 = df2.transpose()
+transpose_df3 = df3.transpose()
+transpose_df4 = df4.transpose()
+transpose_df5 = df5.transpose()
+transpose_df6 = df6.transpose()
+
+transpose_df1 = transpose_df1.rename(columns={0: 'df1'})
+transpose_df2 = transpose_df2.rename(columns={0: 'df2'})
+transpose_df3 = transpose_df3.rename(columns={0: 'df3'})
+transpose_df4 = transpose_df4.rename(columns={0: 'df4'})
+transpose_df5 = transpose_df5.rename(columns={0: 'df5'})
+transpose_df6 = transpose_df6.rename(columns={0: 'df6'})
+
+dataframe = transpose_df1.merge(transpose_df2, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df3, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df4, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df5, left_index=True, right_index=True, how='left')
+dataframe = dataframe.merge(transpose_df6, left_index=True, right_index=True, how='left')
+
+
+
 
 
 
