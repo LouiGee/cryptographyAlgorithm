@@ -419,6 +419,8 @@ dataframe = dataframe.merge(transpose_df6, left_index=True, right_index=True, ho
 
 ##6##
 
+import pandas as pd
+
 with open("lg565/cexercise6.txt", "r") as file:
     # Read the content of the file
     ciphertext = file.read()
@@ -464,6 +466,8 @@ dataframe = dataframe.merge(transpose_df3, left_index=True, right_index=True, ho
 dataframe = dataframe.merge(transpose_df4, left_index=True, right_index=True, how='left')
 dataframe = dataframe.merge(transpose_df5, left_index=True, right_index=True, how='left')
 dataframe = dataframe.merge(transpose_df6, left_index=True, right_index=True, how='left')
+
+dfi = dataframe[['df2','df1','df6','df3','df5','df4']]
 
 
 
