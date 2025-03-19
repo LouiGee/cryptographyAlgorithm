@@ -133,9 +133,33 @@ for group_num, freqs in freq_results:
     print("\n")
 
 
+
+#FIRSTHELIVEDUPABOVEENTIRELYREA Plaintext
+#Frequency analysis
+# Create 6 groups of 5 letters taking every 6th letter for each group 
+# Then count the frequency of each letter in each group
+# For example in group 1 W(17) is the joint most frequent letter in the ciphertext
+# there are 18 spaces between E and W. +1 to account for E and the caeser shift is 19 = S.
+# For Group 2 the most common letter in the ciphertext is C(21) 
+# there are 24 spaces between E and C. +1 to account for E amd the ceaser shift is 25 = Y
+# So on and so forth 
+# and the key is    
+# Recover the Key
+# Decipher the ciphertext
+#SYPPTJ	key
+
+
+#4
+
 from collections import Counter
 
+# Open the file in read mode
+with open("lg565/cexercise4.txt", "r") as file:
+    # Read the content of the file
+    ciphertext = file.read()
 
+
+# Function to divide ciphertext into groups based on key length
 def divide_ciphertext(ciphertext, key_length=6):
     groups = [''] * key_length  # Create a list for each group
 
@@ -144,54 +168,126 @@ def divide_ciphertext(ciphertext, key_length=6):
 
     return groups
 
-# Example usage
-groups = divide_ciphertext(ciphertext)
+# Function to perform frequency analysis on each group
+def frequency_analysis(groups):
+    analysis = []
+    for i, group in enumerate(groups):
+        freq_count = Counter(group)  # Count letter occurrences
+        sorted_freq = sorted(freq_count.items(), key=lambda x: x[1], reverse=True)  # Sort by frequency
+        analysis.append((i + 1, sorted_freq))  # Store group number and frequencies
+    return analysis
 
-# Print each group
-for i, group in enumerate(groups):
-    print(f"Group {i+1}: {group}")
+# Example ciphertext
+key_length = 4
+
+# Step 1: Divide ciphertext into groups
+groups = divide_ciphertext(ciphertext, key_length)
+
+# Step 2: Perform frequency analysis on each group
+freq_results = frequency_analysis(groups)
+
+# Print frequency analysis results
+for group_num, freqs in freq_results:
+    print(f"Group {group_num} frequency analysis:")
+    for letter, freq in freqs:
+        print(f"  {letter}: {freq}")
+    print("\n")
     
-divide_ciphertext(ciphertext)
+## 6 Letter Key ##
     
+# For example in group 1 Y(13) is the joint most frequent letter in the ciphertext
+# there are 20 spaces between E and Y. +1 to account for E and the caeser shift is 21 = U.
+
+# For example in group 2 C(12) is the most frequent letter in the ciphertext
+# there are 24 spaces between E and C. +1 to account for E and the caeser shift is 25 = Y.
+
+# For example in group 3 Y(14) is the most frequent letter in the ciphertext
+# there are 20 spaces between E and Y. +1 to account for E and the caeser shift is 21 = U.
+
+# For example in group 4 S(14) is the  most frequent letter in the ciphertext
+# there are 13 spaces between E and S. +1 to account for E and the caeser shift is 14 = N.
+
+# For example in group 5 Y(14) is the most frequent letter in the ciphertext
+# there are 20 spaces between E and Y. +1 to account for E and the caeser shift is 21 = U.
     
+# For example in group 6 C(12) is the  most frequent letter in the ciphertext
+# there are 20 spaces between E and C. +1 to account for E and the caeser shift is 21 = Y.
 
-def caesar_shift(text, shift):
-    result = ""
-    for char in text:
-            shift_base = ord('A')
-            result += chr((ord(char) - shift_base - shift) % 26 + shift_base)
-    return result
+Key1 = 'UYUNUY'
 
-#Create groups
+## 5 Letter Key ##
 
-Groups = dict(group1=["X","W","M","W","A"],
-               group2=["G","J","N","C","W"], 
-               group3=["G","X","P","C","J"],
-               group4=["H","K","Q","I","N"],
-               group5=["M","X","H","B","G"],
-               group6=["Q","M","E","A","X"],)
+# For example in group 1 C(18) is the most frequent letter in the ciphertext
+# there are 24 spaces between E and C. +1 to account for E and the caeser shift is 25 = Y.
 
-#SYPPTJ	key
-#FIRSTHELIVEDUPABOVEENTIRELYREA Plaintext
-#Frequency analysis
-# For example in group 1 W is the most frequent letter in the ciphertext
-# there are 18 spaces between E and W. +1 to account for E and the caeser shift is 19 = S.
-# For Group 2 the most common letter in the ciphertext is C 
-# there are 24 spaces between E and C. +1 to account for E amd the ceaser shift is 25 = Y
-# So on and so forth 
-# and the key is    
-# Recover the Key
-# Decipher the ciphertext
+# For example in group 2 P(24) is the most frequent letter in the ciphertext
+# there are 11 spaces between E and P. +1 to account for E and the caeser shift is 12 = L.
+
+# For example in group 3 U(18) is the most frequent letter in the ciphertext
+# there are 16 spaces between E and U. +1 to account for E and the caeser shift is 17 = Q.
+
+# For example in group 4 P(24) is the most frequent letter in the ciphertext
+# there are 11 spaces between E and P. +1 to account for E and the caeser shift is 12 = L.
+
+# For example in group 5 S(26) is the joint most frequent letter in the ciphertext
+# there are 14 spaces between E and Y. +1 to account for E and the caeser shift is 15 = O.
+
+Key2 = 'YLQLO'
 
 
+## 4 Letter Key ##
 
-#4
+# For example in group 1 Y(22) is the most frequent letter in the ciphertext
+# there are 20 spaces between E and Y. +1 to account for E and the caeser shift is 21 = U.
+
+# For example in group 1 C(16) is the most frequent letter in the ciphertext
+# there are 24 spaces between E and C. +1 to account for E and the caeser shift is 25 = Y.
+
+# For example in group 1 Y(19) is the most frequent letter in the ciphertext
+# there are 20 spaces between E and Y. +1 to account for E and the caeser shift is 21 = U.
+
+# For example in group 4 P(18) is the most frequent letter in the ciphertext
+# there are 11 spaces between E and P. +1 to account for E and the caeser shift is 12 = L.
+
+Key3 = 'UYUL'
+
+
+# Function to decode Vigenere cipher 
+def decode_Vigenere_cipher(ciphertext, key):
+    decoded_text = ""
+
+    for i in range(len(ciphertext)):
+        
+        offset = ord('A')
+            
+        # Shift the character forward and wrap around the alphabet
+        decoded_char = chr(((ord(ciphertext[i]) - ord(key[i]))) % 26 + offset)
+        decoded_text += decoded_char
+
+    return decoded_text
 
 
 
+key = Key2
+
+def generate_key(text, key):
+    key = list(key)
+    if len(key) < len(text):
+        for i in range(len(text) - len(key)):
+            key.append(key[i % len(key)])
+    return "".join(key)
+
+generated_key = generate_key(ciphertext, key)
 
 
-    
+plainText4 = decode_Vigenere_cipher(ciphertext,generated_key)
+
+plainText4 = plainText4[:30]
+
+if plainText4 in text:
+    print("The extract exists in the text.")
+else:
+    print("The extract does not exist in the text.")
 
 
 
