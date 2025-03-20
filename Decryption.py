@@ -470,7 +470,73 @@ dataframe = dataframe.merge(transpose_df6, left_index=True, right_index=True, ho
 dfi = dataframe[['df2','df1','df6','df3','df5','df4']]
 
 
+##7##
+
+from collections import Counter
+
+# Open the file in read mode
+with open("lg565/cexercise7.txt", "r") as file:
+    # Read the content of the file
+    ciphertext = file.read()
 
 
+# Function to divide ciphertext into groups based on key length
+def divide_ciphertext(ciphertext, key_length=6):
+    groups = [''] * key_length  # Create a list for each group
+
+    for i, letter in enumerate(ciphertext):
+        groups[i % key_length] += letter  # Assign letters to groups cyclically
+
+    return groups
+
+# Function to perform frequency analysis on each group
+def frequency_analysis(groups):
+    analysis = []
+    for i, group in enumerate(groups):
+        freq_count = Counter(group)  # Count letter occurrences
+        sorted_freq = sorted(freq_count.items(), key=lambda x: x[1], reverse=True)  # Sort by frequency
+        analysis.append((i + 1, sorted_freq))  # Store group number and frequencies
+    return analysis
+
+# Example ciphertext
+key_length = 1
+
+# Step 1: Divide ciphertext into groups
+groups = divide_ciphertext(ciphertext, key_length)
+
+# Step 2: Perform frequency analysis on each group
+freq_results = frequency_analysis(groups)
+
+# Print frequency analysis results
+for group_num, freqs in freq_results:
+    print(f"Group {group_num} frequency analysis:")
+    for letter, freq in freqs:
+        print(f" {letter}: {freq}")
+    print("\n")
+    
+
+ciphertext = ciphertext[:30] 
+plainText = ciphertext.replace('|', 'A')   
+plainText = plainText.replace('L', '|')
+
+plainText = plainText.replace('H', 'T')
+plainText = plainText.replace('T', 'H')
+plainText = plainText.replace('K', 'E')
+
+plainText = 'HUV|TUFE|GW|APPGXWT|GJ|THE|IGT'
+
+
+plainText = plainText.replace('P', 'C')
+plainText = plainText.replace('G', 'O')
+plainText = plainText.replace('X', 'U')
+plainText = plainText.replace('W', 'N')
+
+plainText = plainText.replace('J', 'F')
+
+
+
+plainText = plainText.replace('U', 'O')
+plainText = plainText.replace('E', 'W')
+plainText = plainText.replace('K', 'H')
 
 
