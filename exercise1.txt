@@ -1,0 +1,5 @@
+ALRETURNINGFROMONEOFTHESEDARKW
+
+Using python I created a program that takes two parameters, the ciphertext and the shift.
+the program then shifts each in the cipher text corresponding to the shift. 
+In order to test each 25 potential shifts. The program was put in a for loop and then I manually checked the results to choose the correct shift - 15 in this case.

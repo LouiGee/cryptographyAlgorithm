@@ -1,0 +1,5 @@
+DWEMUSTOVERHAULTHATMEADHERESUM
+
+I created a program in python that have two functions. 
+The first function takes the key and extends the length of the key to the length of the ciphertext .
+the seconds function then takes the cipher text and the generated key and shifts the ciphertext letters to the corresponding generated key letter.
