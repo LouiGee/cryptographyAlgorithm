@@ -1,0 +1,4 @@
+THETYPETESSTOOKITUPANDHERMOTHE
+
+For this I wrote a python program that took the cipher text and created 6 equal length pieces of text.
+I then created a dataframe with each group being represented vertically as a column.

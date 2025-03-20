@@ -1,0 +1,10 @@
+FIRSTHELIVEDUPABOVEENTIRELYREA
+
+I created a python program that Created 6 groups of 5 letters taking every 6th letter for each group. 
+It Then counts the frequency of each letter in each group.
+For example in group 1, W(17) is the joint most frequent letter in the ciphertext
+Assuming E to be the most frequent character there are 18 spaces between E and W. +1 to account for E and the caeser shift is 19 = S.
+For Group 2 the most common letter in the ciphertext is C(21). 
+there are 24 spaces between E and C. +1 to account for E amd the ceaser shift is 25 = Y.
+So on and so forth until the key is deciphered SYPPTJ. 
+Then run the program from question 2 to dicipher. 

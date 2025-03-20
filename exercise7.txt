@@ -1,0 +1,8 @@
+HIS|TIME|ON|ACCOUNT|OF|THE|BOT
+
+I wrote a program to perform frequency analysis and figure out that 'L' corresponded to a '|'
+This allowed me to split a 30 character extract into encrypted words.
+The next hint was the dicipher the 3 letter 'HTK' as it is likely this was 'THE'.
+From then '|CCGXWT' was diciphered through frequency analysis and analysing words that had the same letter for positions 2 and 3.
+This mean this word was likely to be 'Account'
+Other words were then diciphered through trial and error. 

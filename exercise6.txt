@@ -1,0 +1,6 @@
+SAIDYESANDYOUWOULDHAVEMARRIEDA
+
+Similar to exercise 5, I created a prgoram that takes the ciphertext and splits the ciphertext into 6 groups.
+The groups are then represented in the dataset with each group being represented vertically.
+In order to discover the correct permutation I looked at row 11 and made the word 'ground'.
+this then solved the permutation order.

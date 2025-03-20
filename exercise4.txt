@@ -1,0 +1,9 @@
+ANDOURCOULDHOLDOUTAGAINSTITMUC
+
+Created a python program similar to question but this time 3 sets of groups were created.
+4 groups for a key length of 4, 5 groups for a key length of 5 and so on for 6.
+The program perfomed the smae logic as exercise 3.
+For example, for a 5 letter key, in group 1 C(18) is the most frequent letter in the ciphertext
+there are 24 spaces between E and C. +1 to account for E and the caeser shift is 25 = Y.
+The key produced was YLQLO. 
+A key was then generated to fit the length fo the cipher text and each letter in the cipher text was shifted corresposnding to the key letter.
